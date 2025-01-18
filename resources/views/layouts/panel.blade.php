@@ -176,7 +176,7 @@
     </div>
   </div>
   <!--   Core   -->
-  <script src="{{asset('js/plugins/jquery/dist/jquery.min.js')}}./assets/"></script>
+  <script src="{{asset('js/plugins/jquery/dist/jquery.min.js')}}"></script>
   <script src="{{asset('js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
   <!--   Optional JS   -->
   <script src="{{asset('js/plugins/chart.js/dist/Chart.min.js')}}"></script>
