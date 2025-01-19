@@ -28,7 +28,9 @@
             >
               <i class="fas fa-sign-in-alt"></i> Cerrar Sesion
             </a>
-            <form action="{{route('logout')}}" method="POST" style="display: none;" id="formLogout"></form>   
+            <form action="{{route('logout')}}" method="POST" style="display: none;" id="formLogout">
+              @csrf
+            </form>   
           </li>
 </ul>
 
