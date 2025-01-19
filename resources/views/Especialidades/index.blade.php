@@ -7,10 +7,10 @@
         <div class="card-header border-0">
         <div class="row align-items-center">
             <div class="col">
-            <h3 class="mb-0">Especialidades</h3>
+            <h3 class="mb-0"><i class="ni ni-briefcase-24 text-blue"></i> Especialidades</h3>
             </div>
             <div class="col text-right">
-            <a href="#!" class="btn btn-sm btn-primary">Nueva Especialidad</a>
+            <a href="{{ route('create') }}" class="btn btn-sm btn-primary">Nueva Especialidad</a>
             </div>
         </div>
         </div>
@@ -26,15 +26,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">65</th>
-                    <td>Odontologo</td>
-                    <td>dentisitas profesionales</td>
-                    <td>
-                        <a href="#" class="btn btn-sm btn-primary">Editar</a>
-                        <a href="" class="btn btn-sm btn-danger">Eliminar</a>
-                    </td>
-                </tr>
+                @foreach($especialidades as $especialidad)
+                    <tr>
+                        <th scope="row">{{ $especialidad->id }}</th>
+                        <td>{{ $especialidad->nombre }}</td>
+                        <td>{{ $especialidad->descripcion }}</td>
+                        <td>
+                            <a href="#" class="btn btn-sm btn-primary">Editar</a>
+                            <a href="" class="btn btn-sm btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
         </div>
