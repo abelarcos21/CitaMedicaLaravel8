@@ -32,11 +32,11 @@
                         <td>{{ $especialidad->nombre }}</td>
                         <td>{{ $especialidad->descripcion }}</td>
                         <td>
-                            <form href="{{ route('destroy',$especialidad) }}" method="POST">
+                            <form action="{{ route('destroy',$especialidad) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <a href="{{ route('edit',$especialidad) }}" class="btn btn-sm btn-primary">Editar</a>
-                                <button type="submit"  class="btn btn-sm btn-danger">Eliminar</button>
+                                <button onclick="return confirm('¿estas seguro de elimnar la Especialidad?')" type="submit"  class="btn btn-sm btn-danger">Eliminar</button>
                             </form>
                         </td>
                     </tr>
