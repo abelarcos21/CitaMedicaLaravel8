@@ -50,13 +50,38 @@ class EspecialidadController extends Controller
         return redirect('especialidades');
     }
 
-    //METODO DE EDITAR
-    public function edit(){
+    //METODO PARA LLAMAR A LA VISTA EDIT PASANDOLE EL ID DE LA ESPECIALIDAD
+    public function edit(Especialidad $especialidad){
+
+        return view('especialidades.edit', compact('especialidad'));
+    }
+    //METODO PARA ACTULIZAR LOS DATOS QUE SE VAN EDITAR
+    public function update(Request $request, Especialidad $especialidad){
+
+        //VALIDACION DE CAMPOS
+        $rules = [
+            'nombre' => 'required|min:3'
+        ];
+
+        $messages = [
+            'nombre.required' => 'El nombre de la Especialidad es Obligatorio',
+            'nombre.min' => 'El nombre de la Especialidad debe de tener mas de 3 caracteres'
+        ];
+
+        $this->validate($request, $rules, $messages);
+
+        $especialidad->nombre = $request->get('nombre');
+        $especialidad->descripcion = $request->get('descripcion');
+        $especialidad->save();
+
+        return redirect('especialidades');
 
     }
 
     //METODO DE ELIMINAR
-    public function delete(){
+    public function destroy(Especialidad $especialidad){
+        $especialidad->delete();
+        return redirect('especialidades');
         
     }
 

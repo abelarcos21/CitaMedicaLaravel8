@@ -6,7 +6,7 @@
         <div class="card-header border-0">
         <div class="row align-items-center">
             <div class="col">
-            <h3 class="mb-0">Nueva Especialidad</h3>
+            <h3 class="mb-0">Editar Especialidad</h3>
             </div>
             <div class="col text-right">
             <a href="{{ route('index') }}" class="btn btn-sm btn-primary">Regresar</a>
@@ -26,15 +26,16 @@
                 </div>
                 @endforeach
             @endif
-            <form action="{{ route('store') }}" method="POST">
+            <form action="{{ route('update', $especialidad) }}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="form-group">
                     <label>Nombre de la Especialidad</label>
-                    <input type="text" name="nombre" class="form-control" value="{{ old('nombre') }}" placeholder="ingrese el nombre de la especialidad" required></input>
+                    <input type="text" name="nombre" class="form-control" value="{{ old('nombre', $especialidad->nombre) }}" placeholder="ingrese el nombre de la especialidad" required></input>
                 </div>
                 <div class="form-group">
                     <label>Descripcion</label>
-                    <input type="text" name="descripcion" class="form-control" value="{{ old('descripcion') }}" placeholder="ingrese una descripcion"></input>
+                    <input type="text" name="descripcion" class="form-control" value="{{ old('descripcion', $especialidad->descripcion) }}" placeholder="ingrese una descripcion"></input>
                 </div>
                 <button type="submit" class="btn btn-sm btn-primary">Guardar Especialidad</button>
             </form>
