@@ -8,10 +8,10 @@ use App\Models\Especialidad;
 class EspecialidadController extends Controller
 {
     //Middleware Auth
-    public function __construct(){
+    //public function __construct(){
 
-        $this->middleware('auth');
-    }
+        //$this->middleware('auth');
+    //}
 
     //METODO INDEX
     public function index(){
@@ -48,6 +48,16 @@ class EspecialidadController extends Controller
         $especialidad->save();
 
         return redirect('especialidades');
+    }
+
+    //METODO DE EDITAR
+    public function edit(){
+
+    }
+
+    //METODO DE ELIMINAR
+    public function delete(){
+        
     }
 
 }
