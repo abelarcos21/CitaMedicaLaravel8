@@ -7,10 +7,10 @@
         <div class="card-header border-0">
             <div class="row align-items-center">
                 <div class="col">
-                    <h3 class="mb-0"><i class="ni ni-briefcase-24 text-blue"></i> Especialidades</h3>
+                    <h3 class="mb-0"><i class="fas fa-bed text-warning"></i> Pacientes</h3>
                 </div>
                 <div class="col text-right">
-                    <a href="{{ route('create') }}" class="btn btn-sm btn-primary">Nueva Especialidad</a>
+                    <a href="{{ route('paciente.create') }}" class="btn btn-sm btn-primary">Nuevo Paciente</a>
                 </div>
             </div>
         </div>
@@ -31,21 +31,23 @@
                 <tr>
                     <th scope="col">#ID</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Descripcion</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Cedula</th>
                     <th scope="col">Opciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($especialidades as $especialidad)
+                @foreach($pacientes as $paciente)
                     <tr>
-                        <th scope="row">{{ $especialidad->id }}</th>
-                        <td>{{ $especialidad->nombre }}</td>
-                        <td>{{ $especialidad->descripcion }}</td>
+                        <th scope="row">{{ $paciente->id }}</th>
+                        <td>{{ $paciente->nombre }}</td>
+                        <td>{{ $paciente->correo }}</td>
+                        <td>{{ $paciente->cedula }}</td>
                         <td>
-                            <form action="{{ route('destroy',$especialidad) }}" method="POST">
+                            <form action="{{ route('doctor.destroy',$paciente) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <a href="{{ route('edit',$especialidad) }}" class="btn btn-sm btn-primary">Editar</a>
+                                <a href="{{ route('edit',$paciente) }}" class="btn btn-sm btn-primary">Editar</a>
                                 <button onclick="return confirm('¿estas seguro de elimnar la Especialidad?')" type="submit"  class="btn btn-sm btn-danger">Eliminar</button>
                             </form>
                         </td>

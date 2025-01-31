@@ -10,5 +10,5 @@ class Especialidad extends Model
     use HasFactory;
 
     //protected $guarded = [];
-    protected $fillable = ['nombre'];
+    protected $fillable = ['nombre','descripcion'];
 }

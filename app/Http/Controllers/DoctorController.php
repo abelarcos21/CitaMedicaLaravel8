@@ -3,32 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Especialidad;
+use App\Models\User;
 
-class EspecialidadController extends Controller
+class DoctorController extends Controller
 {
-    //Middleware Auth
-    //public function __construct(){
-
-        //$this->middleware('auth');
-    //}
-
     //METODO INDEX
     public function index(){
-
-        $especialidades = Especialidad::all();
-        return view('especialidades.index', compact('especialidades'));
+        $doctores = User::all();
+        return view('doctores.index', compact('doctores'));
     }
 
-    //METODO CREATE
+    //METODO CREATE 
     public function create(){
-
-        return view('especialidades.create');
-
+        return view('doctores.create');
     }
 
-    //METODO STORE(Guardar datos en la BD)
-    public function store(Request $request){
+     //METODO STORE(Guardar datos en la BD)
+     public function store(Request $request){
         //VALIDACION DE CAMPOS
         $rules = [
             'nombre' => 'required|min:3'
@@ -42,18 +33,18 @@ class EspecialidadController extends Controller
         $this->validate($request, $rules, $messages);
 
 
-        $especialidad = new Especialidad();
-        $especialidad->nombre = $request->get('nombre');
-        $especialidad->descripcion = $request->get('descripcion');
-        $especialidad->save();
+        $doctor = new User();
+        $doctor->nombre = $request->get('nombre');
+        $doctor->descripcion = $request->get('descripcion');
+        $doctor->save();
 
         $notificacion = 'La Especialidad se Guardo Correctamente';
 
-        return redirect('especialidades')->with(compact('notificacion'));
+        return redirect('doctores')->with(compact('notificacion'));
     }
 
     //METODO PARA LLAMAR A LA VISTA EDIT PASANDOLE EL ID DE LA ESPECIALIDAD
-    public function edit(Especialidad $especialidad){
+    public function edit(User $especialidad){
 
         return view('especialidades.edit', compact('especialidad'));
     }
@@ -91,5 +82,7 @@ class EspecialidadController extends Controller
         return redirect('especialidades')->with(compact('notificacion'));
         
     }
+
+    
 
 }
