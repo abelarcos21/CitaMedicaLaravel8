@@ -40,8 +40,8 @@
                 @foreach($pacientes as $paciente)
                     <tr>
                         <th scope="row">{{ $paciente->id }}</th>
-                        <td>{{ $paciente->nombre }}</td>
-                        <td>{{ $paciente->correo }}</td>
+                        <td>{{ $paciente->name }}</td>
+                        <td>{{ $paciente->email }}</td>
                         <td>{{ $paciente->cedula }}</td>
                         <td>
                             <form action="{{ route('doctor.destroy',$paciente) }}" method="POST">
