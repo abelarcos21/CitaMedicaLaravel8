@@ -47,7 +47,7 @@
                             <form action="{{ route('doctor.destroy',$doctor) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <a href="{{ route('edit',$doctor) }}" class="btn btn-sm btn-primary">Editar</a>
+                                <a href="{{ route('doctor.edit',$doctor) }}" class="btn btn-sm btn-primary">Editar</a>
                                 <button onclick="return confirm('¿estas seguro de elimnar la Especialidad?')" type="submit"  class="btn btn-sm btn-danger">Eliminar</button>
                             </form>
                         </td>

@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'abel302025@hotmail.com',
             'email_verified_at' => now(),
             'password' => bcrypt('$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'), // password
-            'cedula' => '09876512',
+            'cedula' => '0987651245',
             'direccion' => 'AV Lopez Mateos',
             'telefono' => '9811713316',
             'rol' => 'admin',

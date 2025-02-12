@@ -10,7 +10,7 @@
             <h3 class="mb-0">Nuevo Medico</h3>
             </div>
             <div class="col text-right">
-            <a href="{{ route('doctor.index') }}" class="btn btn-sm btn-primary">Regresar</a>
+            <a href="{{ route('doctor.index') }}" class="btn btn-sm btn-info">Regresar</a>
             </div>
         </div>
         </div>
@@ -31,11 +31,11 @@
                 @csrf
                 <div class="form-group">
                     <label>Nombre del Medico</label>
-                    <input type="text" for="nombre" name="nombre" class="form-control" value="{{ old('nombre') }}" placeholder="ingrese el nombre de la especialidad" required></input>
+                    <input type="text" for="name" name="name" class="form-control" value="{{ old('name') }}" placeholder="ingrese el nombre de la especialidad" required></input>
                 </div>
                 <div class="form-group">
                     <label>Correo Electronico</label>
-                    <input type="email" for="correo" name="correo" class="form-control" value="{{ old('correo') }}" placeholder="ingrese su Correo"></input>
+                    <input type="email" for="email" name="email" class="form-control" value="{{ old('email') }}" placeholder="ingrese su Correo"></input>
                 </div>
                 <div class="form-group">
                     <label>Cedula</label>
@@ -47,7 +47,11 @@
                 </div>
                 <div class="form-group">
                     <label>Telefono / Movil</label>
-                    <input type="email" for="telefono" name="telefono" class="form-control" value="{{ old('telefono') }}" placeholder="ingrese su telefono movil"></input>
+                    <input type="text" for="telefono" name="telefono" class="form-control" value="{{ old('telefono') }}" placeholder="ingrese su telefono movil"></input>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="text" for="password" name="password" class="form-control" value="{{ old('password', Str::random(8)) }}"></input>
                 </div>
                 <button type="submit" class="btn btn-sm btn-primary">Guardar Medico</button>
             </form>

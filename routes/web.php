@@ -25,11 +25,11 @@ Route::group(['prefix' => 'doctores'], function(){
 
     Route::get('', [App\Http\Controllers\DoctorController::class, 'index'])->name('doctor.index');
     Route::get('create', [App\Http\Controllers\DoctorController::class, 'create'])->name('doctor.create');
-    Route::post('store', [App\Http\Controllers\EspecialidadController::class, 'store'])->name('doctor.store');
-    Route::get('{doctor}/edit', [App\Http\Controllers\EspecialidadController::class, 'edit'])->name('doctor.edit');
+    Route::post('store', [App\Http\Controllers\DoctorController::class, 'store'])->name('doctor.store');
+    Route::get('{doctor}/edit', [App\Http\Controllers\DoctorController::class, 'edit'])->name('doctor.edit');
 
-    Route::put('{doctor}', [App\Http\Controllers\EspecialidadController::class, 'update'])->name('doctor.update');
-    Route::delete('{doctor}', [App\Http\Controllers\EspecialidadController::class, 'destroy'])->name('doctor.destroy');
+    Route::put('{doctor}', [App\Http\Controllers\DoctorController::class, 'update'])->name('doctor.update');
+    Route::delete('{doctor}', [App\Http\Controllers\DoctorController::class, 'destroy'])->name('doctor.destroy');
 
 });
 

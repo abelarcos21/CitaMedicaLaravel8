@@ -44,10 +44,10 @@
                         <td>{{ $paciente->email }}</td>
                         <td>{{ $paciente->cedula }}</td>
                         <td>
-                            <form action="{{ route('doctor.destroy',$paciente) }}" method="POST">
+                            <form action="{{ route('paciente.destroy',$paciente) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <a href="{{ route('edit',$paciente) }}" class="btn btn-sm btn-primary">Editar</a>
+                                <a href="{{ route('paciente.edit', $paciente) }}" class="btn btn-sm btn-primary">Editar</a>
                                 <button onclick="return confirm('¿estas seguro de elimnar la Especialidad?')" type="submit"  class="btn btn-sm btn-danger">Eliminar</button>
                             </form>
                         </td>

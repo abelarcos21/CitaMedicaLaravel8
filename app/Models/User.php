@@ -21,6 +21,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'cedula',
+        'direccion',
+        'telefono',
+        'rol',
     ];
 
     /**
@@ -41,4 +45,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function scopePacientes($query){
+        return $query->where('rol', 'paciente');
+    }
+
+    public function scopeDoctores($query){
+        return $query->where('rol', 'doctor');
+    }
 }
