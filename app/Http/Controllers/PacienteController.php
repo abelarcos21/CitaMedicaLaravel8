@@ -9,7 +9,7 @@ class PacienteController extends Controller
 {
     //METODO INDEX
     public function index(){
-        $pacientes = User::pacientes()->get(); //uso del scope
+        $pacientes = User::pacientes()->paginate(10); //uso del scope
         return view('pacientes.index', compact('pacientes'));
     }
 

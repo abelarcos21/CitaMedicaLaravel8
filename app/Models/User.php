@@ -45,6 +45,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    protected $guard = [
+        'cedula' => 'cedula',
+    ];
 
     public function scopePacientes($query){
         return $query->where('rol', 'paciente');

@@ -25,36 +25,39 @@
              @endif
         </div>
         <div class="table-responsive">
-        <!-- Projects table -->
-        <table class="table align-items-center table-flush">
-            <thead class="thead-light">
-                <tr>
-                    <th scope="col">#ID</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Correo</th>
-                    <th scope="col">Cedula</th>
-                    <th scope="col">Opciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($pacientes as $paciente)
+            <!-- Projects table -->
+            <table class="table align-items-center table-flush">
+                <thead class="thead-light">
                     <tr>
-                        <th scope="row">{{ $paciente->id }}</th>
-                        <td>{{ $paciente->name }}</td>
-                        <td>{{ $paciente->email }}</td>
-                        <td>{{ $paciente->cedula }}</td>
-                        <td>
-                            <form action="{{ route('paciente.destroy',$paciente) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <a href="{{ route('paciente.edit', $paciente) }}" class="btn btn-sm btn-primary">Editar</a>
-                                <button onclick="return confirm('¿estas seguro de elimnar la Especialidad?')" type="submit"  class="btn btn-sm btn-danger">Eliminar</button>
-                            </form>
-                        </td>
+                        <th scope="col">#ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Cedula</th>
+                        <th scope="col">Opciones</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach($pacientes as $paciente)
+                        <tr>
+                            <th scope="row">{{ $paciente->id }}</th>
+                            <td>{{ $paciente->name }}</td>
+                            <td>{{ $paciente->email }}</td>
+                            <td>{{ $paciente->cedula }}</td>
+                            <td>
+                                <form action="{{ route('paciente.destroy',$paciente) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a href="{{ route('paciente.edit', $paciente) }}" class="btn btn-sm btn-primary">Editar</a>
+                                    <button onclick="return confirm('¿estas seguro de elimnar la Especialidad?')" type="submit"  class="btn btn-sm btn-danger">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="card-body">
+            {{ $pacientes->links()}}
         </div>
     </div>
     

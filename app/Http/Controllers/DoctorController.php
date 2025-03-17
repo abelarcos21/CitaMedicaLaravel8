@@ -9,7 +9,7 @@ class DoctorController extends Controller
 {
     //METODO INDEX
     public function index(){
-        $doctores = User::doctores()->get();
+        $doctores = User::doctores()->paginate(10);
         return view('doctores.index', compact('doctores'));
     }
 
